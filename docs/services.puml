@@ -1,26 +1,5 @@
 @startuml
 
-'node "Nginx"{
-'
-'    }
-
-'database "UserServiceMongoDB"{
-'     }
-'
-'database "IssueServiceMongoDB"{
-'     }
-'
-'database "SearchServiceElasticSearch"{
-'     }
-'
-'database "ReportServicePostgreSQL"{
-'     }
-'
-'database "RoleServiceMongoDB"{
-'     }
-'
-'database "NotificationServiceMongoDB"{
-'    }
 
 
 [ClientService]
