@@ -1,0 +1,44 @@
+@startuml
+
+'node "Nginx"{
+'
+'    }
+
+'database "UserServiceMongoDB"{
+'     }
+'
+'database "IssueServiceMongoDB"{
+'     }
+'
+'database "SearchServiceElasticSearch"{
+'     }
+'
+'database "ReportServicePostgreSQL"{
+'     }
+'
+'database "RoleServiceMongoDB"{
+'     }
+'
+'database "NotificationServiceMongoDB"{
+'    }
+
+
+[ClientService]
+[ConsumerService]
+[HandlerService]
+[WriterService]
+[RabbitMQ]
+
+
+
+ClientService --> RabbitMQ:client_consumer
+ConsumerService --> RabbitMQ:writer
+ConsumerService --> RabbitMQ:consumer_handler
+ConsumerService <-- RabbitMQ:client_consumer
+HandlerService --> RabbitMQ:handler_writer
+HandlerService <-- RabbitMQ:consumer_handler
+[WriterService] <-- RabbitMQ:handler_writer
+[WriterService] <-- RabbitMQ:writer
+
+
+@enduml
